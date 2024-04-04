@@ -9,5 +9,7 @@ urlpatterns = [
     path('clientes/', include('clientes.urls')),
     path('funcionarios/', include('funcionarios.urls')),
     path('inicio/',include('inicio.urls')),
-    path('', lambda request: redirect('lista_clientes'), name='home'),
+    path('produtos/', include('produtos.urls')),
+    path('login/', include('login.urls')),
+    path('', lambda request: redirect('user_login'), name='home'),
 ]

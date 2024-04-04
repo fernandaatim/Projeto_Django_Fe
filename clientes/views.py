@@ -4,10 +4,10 @@ from .forms import ClienteForm
 
 def lista_clientes(request):
     clientes = Cliente.objects.all()
-    busca = request.GET.get('search')
+    busca= request.GET.get('search')
     
     if busca:
-        clientes = clientes.filter(id=busca)
+        clientes=clientes.filter(nome__icontains = busca)
     return render(request, 'clientes/lista_clientes.html', {'clientes': clientes})
 
 def cria_cliente(request):
@@ -31,7 +31,7 @@ def edita_cliente(request, pk):
         form = ClienteForm(instance=cliente)
     return render(request, 'clientes/edita_cliente.html', {'form': form})
 
-def deleta_cliente(request, pk):
+def deleta_cliente(request,pk):
     cliente = get_object_or_404(Cliente, pk=pk)
     cliente.delete()
     return redirect('lista_clientes')

@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     'funcionarios',
     'produtos',
     'inicio',
+    'login',
 ]
 
 MIDDLEWARE = [
